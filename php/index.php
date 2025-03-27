@@ -1,12 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['login']) || !$_SESSION['login']) {
+if (!isset($_SESSION['login']) || !$_SESSION['login']) {
     header('Location: login.html');
-    exit(); // 重要！リダイレクト後の処理を防ぐ
+    exit();
 }
+echo "ログイン成功！ あなたのユーザーID: " . htmlspecialchars($_SESSION['user_id']);
 ?>
-<html>
-<body>
-    ログイン成功！
-</body>
-</html>
