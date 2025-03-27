@@ -1,26 +1,27 @@
-<!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta charset="UTF-8">
-    <meta name="google-signin-client_id" content="685124458001-oontm66sb3u5678c6o9csi0cc3qnokme.apps.googleusercontent.com">
-    <title>Login</title>
+    <meta name="google-signin-client_id" content="<用意したクライアントID>">
+    <title></title>
 </head>
 <body>
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
-<script>
-    function onSignIn(googleUser) {
-        var id_token = googleUser.getAuthResponse().id_token;
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'test.php');
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onload = function() {
-            console.log('Signed in as: ' + xhr.responseText);
-        };
-        xhr.send('idtoken=' + id_token);
-        window.location.href = 'index.php';
-    }
-</script>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <script>
+        function onSignIn(googleUser) {
+            var id_token = googleUser.getAuthResponse().id_token;
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'test.php');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                console.log('Signed in as: ' + xhr.responseText);
+            };
+            xhr.send('idtoken=' + id_token);
+            window.location.href = 'index.php';
+        }
+    </script>
 </body>
 </html>
+
+
 
